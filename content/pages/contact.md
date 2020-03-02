@@ -25,4 +25,4 @@ This form is setup to use Netlify's form handling:
 
 Find out more in the [Netlify Docs](https://www.netlify.com/docs/form-handling/).
 
-![](/static/media/koyote.jpg)
+![](/media/koyote.jpg)
