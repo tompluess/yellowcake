@@ -4,6 +4,9 @@ backend:
   base_url: https://yellowcake.now.sh
   auth_endpoint: /api/auth
 
+media_folder: static/media
+public_folder: media
+
 collections: # A list of collections the CMS should be able to edit
   - name: 'pages'
     label: 'Page'
