@@ -13,28 +13,12 @@ An opinionated starter project for creating lightning-fast websites with [Gatsby
 [Netlify CMS Docs](https://www.netlifycms.org/docs/)
 [Netlify CMS Repo](https://github.com/netlify/netlify-cms)
 
-## Get going
+## Deploy to Zeit.co
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thriveweb/yellowcake&stack=cms)
-
-1.  Hit the **Deploy to Netlify** button. This will:
-
-- Clone the repo into your Github account
-- Create you a new project on Netlify, build & deploy
-
-1.  Once your Netlify project has been created, check a couple of settings:
-
-- Enable **Identity**
-- Change **Registration Preferences** to **Invite Only**
-- Enable **Git Gateway**
-
-1.  Invite users (probably yourself) to enable admin access
-
-- Open the **Identity** tab and hit **Invite Users**
-
-## Show me the CMS!
-
-The CMS lives at [\_\_YOUR_SITE_NAME\_\_.netlify.com/admin](https://__YOUR_SITE_NAME__.netlify.com/admin).
+- Grant access to your github repo to the [Now app](https://github.com/apps/now).
+- Import project to [zeit.co](https://zeit.co/dashboard)
+- Provide your secrets used in `now.json`. e.g. `now secret add tompluess_github_client_id aabbcddeexxx`
+- Adapt `base_url` and env variable `ORIGIN` to your website url
 
 ## Developing
 
