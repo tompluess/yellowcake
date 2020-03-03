@@ -48,6 +48,8 @@ gallery:
   - image: /media/koyote.jpg
     alt: Koyote
     title: Koyote
+  - image: /media/earth-light-network.jpeg
+    alt: Nasa Earth
 meta:
   description: This is a meta description.
   title: Components Page
