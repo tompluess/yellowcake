@@ -9,6 +9,7 @@ meta:
     Yellowcake is an opinionated starter project for Gatsby, Netlify CMS, GitHub
     Authentication and deployment to Zeit.co CDN.
   title: The Ultimate Gatsby Starter
+  canonicalLink: 'https://yellowcake.now.sh/'
 ---
 Yellowcake is an opinionated starter project created by [Thrive Digital](https://thriveweb.com.au/) a [Gold Coast Web Design](https://thriveweb.com.au/) studio. To help you create lightening fast websites with [Gatsby](https://gatsbyjs.org) and [Netlify CMS](https://netlifycms.org).
 
