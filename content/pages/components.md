@@ -45,7 +45,7 @@ gallery:
   - alt: yellow ice cream
     image: 'https://ucarecdn.com/83485d70-1552-4c97-b237-22330fb56a1e/'
     title: Yellow Ice Cream
-  - image: media/koyote.jpg
+  - image: /media/koyote.jpg
     alt: Koyote
     title: Koyote
 meta:
