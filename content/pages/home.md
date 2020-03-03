@@ -29,4 +29,4 @@ View the [project overview](https://thriveweb.com.au/the-lab/yellowcake-gatsby-r
 
 ## Get started
 
-* GitHub Authentication and deployment to Zeit.co CDN is described in the **[Readme in the GitHub repo](https://github.com/tompluess/yellowcake#deploy-to-zeitco)**
+GitHub Authentication and deployment to Zeit.co CDN is described in the **[Readme in the GitHub repo](https://github.com/tompluess/yellowcake#deploy-to-zeitco)**
