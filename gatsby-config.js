@@ -129,6 +129,15 @@ module.exports = {
         enableIdentityWidget: true
       }
     },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: false,
+        tailwind: true,
+        ignore: ["react-responsive-carousel/"]
+      }
+    },
     'gatsby-plugin-netlify' // make sure to keep it last in the array
   ]
 }
