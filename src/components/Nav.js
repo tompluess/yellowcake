@@ -1,103 +1,106 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { Location } from '@reach/router'
 import { Link } from 'gatsby'
 import { Menu, X } from 'react-feather'
 import Logo from './Logo'
 
-import './Nav.css'
+import './globalStyles.css'
 
-export class Navigation extends Component {
-  state = {
-    active: false,
-    activeSubNav: false,
-    currentPath: false
-  }
+const menuData = [
+  { title: 'Home', link: '/' },
+  { title: 'Contact', link: '/contact' },
+  { title: 'Components', link: '/components/' }
+]
 
-  componentDidMount = () =>
-    this.setState({ currentPath: this.props.location.pathname })
-
-  handleMenuToggle = () => this.setState({ active: !this.state.active })
-
-  // Only close nav if it is open
-  handleLinkClick = () => this.state.active && this.handleMenuToggle()
-
-  toggleSubNav = subNav =>
-    this.setState({
-      activeSubNav: this.state.activeSubNav === subNav ? false : subNav
-    })
-
-  render() {
-    const { active } = this.state,
-      { subNav } = this.props,
-      NavLink = ({ to, className, children, ...props }) => (
-        <Link
-          to={to}
-          className={`NavLink ${
-            to === this.state.currentPath ? 'active' : ''
-          } ${className}`}
-          onClick={this.handleLinkClick}
-          {...props}
-        >
-          {children}
-        </Link>
-      )
-
-    return (
-      <nav className={`Nav ${active ? 'Nav-active' : ''}`}>
-        <div className="Nav--Container container">
-          <Link to="/" onClick={this.handleLinkClick}>
-            <Logo />
-          </Link>
-          <div className="Nav--Links">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/components/">Components</NavLink>
-            <div
-              className={`Nav--Group ${
-                this.state.activeSubNav === 'posts' ? 'active' : ''
-              }`}
-            >
-              <span
-                className={`NavLink Nav--GroupParent ${
-                  this.props.location.pathname.includes('posts') ||
-                  this.props.location.pathname.includes('blog') ||
-                  this.props.location.pathname.includes('post-categories')
-                    ? 'active'
-                    : ''
-                }`}
-                onClick={() => this.toggleSubNav('posts')}
-              >
-                Blog
-              </span>
-              <div className="Nav--GroupLinks">
-                <NavLink to="/blog/" className="Nav--GroupLink">
-                  All Posts
-                </NavLink>
-                {subNav.posts.map((link, index) => (
-                  <NavLink
-                    to={link.slug}
-                    key={'posts-subnav-link-' + index}
-                    className="Nav--GroupLink"
-                  >
-                    {link.title}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-            <NavLink to="/default/">Default</NavLink>
-            <NavLink to="/contact/">Contact</NavLink>
-          </div>
-          <button
-            className="Button-blank Nav--MenuButton"
-            onClick={this.handleMenuToggle}
-          >
-            {active ? <X /> : <Menu />}
-          </button>
-        </div>
-      </nav>
-    )
-  }
-}
-
-export default ({ subNav }) => (
-  <Location>{route => <Navigation subNav={subNav} {...route} />}</Location>
+const HamburgerButton = ({ onClick }) => (
+  <button type="button" onClick={onClick} className="self-end" >
+    <svg className="w-16 h-16 fill-current text-white" viewBox="0 0 41 41">
+      {/* TODO: alt text translation */}
+      <title>Menu</title>
+      <circle cx="20.5" cy="20.5" r="20.5" />
+      <path
+        stroke="var(--primary)"
+        strokeWidth="2"
+        d="M0 10 H41 M0 25 H41 M0 40 H41"
+      />
+    </svg>
+  </button>
 )
+
+const CrossButton = ({ onClick }) => (
+  <button type="button" onClick={onClick} className="self-end" >
+    <svg className="w-16 h-16 fill-current text-white" viewBox="0 0 41 41">
+      <g
+        clipPath="url(#clip0)"
+        stroke="var(--primary)"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+      >
+        <path d="M5 9 L37 41 M5 41 L37 9" />
+      </g>
+    </svg>
+  </button>
+)
+
+HamburgerButton.propTypes = {
+  onClick: PropTypes.func
+}
+const MenuItem = ({ menuItem, className }) => (
+  <div className={className}>
+    <Link to={menuItem.link} className={className}>
+      <span className="text-3xl text-thin">{menuItem.title}</span>
+    </Link>
+  </div>
+)
+
+export default ({ subNav }) => {
+  const [navigationOpen, setNavigationOpen] = useState(false)
+
+  const openMenu = () => setNavigationOpen(true)
+  const closeMenu = () => setNavigationOpen(false)
+
+  return (
+    <>
+      <header className="fixed z-20 w-full flex flex-col top-0 p-8 mx-auto bg-white">
+        <nav>
+          <div className="flex flex-row justify-between items-center w-11/12 max-w-screen-lg mx-auto ">
+            <a href="/">
+              <Logo />
+            </a>
+            <div className="md:hidden">
+              {navigationOpen ? (
+                <CrossButton onClick={closeMenu} />
+              ) : (
+                <HamburgerButton onClick={openMenu} />
+              )}
+            </div>
+            {menuData.map(menuItem => {
+              return (
+                <MenuItem
+                  menuItem={menuItem}
+                  className="hidden md:block text-right"
+                />
+              )
+            })}
+          </div>
+
+          {navigationOpen ? (
+            <div className="flex flex-col content-center md:hidden">
+              {menuData.map(menuItem => {
+                return (
+                  <MenuItem
+                    menuItem={menuItem}
+                    className="flex items-center mx-auto my-4 "
+                  />
+                )
+              })}
+            </div>
+          ) : (
+            <div className="hidden" />
+          )}
+        </nav>
+      </header>
+    </>
+  )
+}
