@@ -9,8 +9,9 @@ import './globalStyles.css'
 
 const menuData = [
   { title: 'Home', link: '/' },
+  { title: 'Blog', link: '/blog/' },
+  { title: 'Components', link: '/components/' },
   { title: 'Contact', link: '/contact' },
-  { title: 'Components', link: '/components/' }
 ]
 
 const HamburgerButton = ({ onClick }) => (
