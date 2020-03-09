@@ -1,9 +1,8 @@
 import React from 'react'
-import './Logo.css'
 
 export default () => (
   <div
-    className="Logo"
+    className="h-16 w-20 bg-no-repeat"
     style={{
       backgroundImage: `url(/images/logo.svg)`
     }}

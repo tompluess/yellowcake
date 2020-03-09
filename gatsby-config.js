@@ -105,6 +105,7 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
+          require("tailwindcss"),
           require(`postcss-preset-env`)({
             browsers: '> 0.5%, last 2 versions, ie 11'
           })
@@ -127,6 +128,15 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
         stylesPath: `${__dirname}/src/cms/admin.css`,
         enableIdentityWidget: true
+      }
+    },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: false,
+        tailwind: true,
+        ignore: ["react-responsive-carousel/"]
       }
     },
     'gatsby-plugin-netlify' // make sure to keep it last in the array

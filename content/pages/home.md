@@ -21,7 +21,7 @@ View the [project overview](https://thriveweb.com.au/the-lab/yellowcake-gatsby-r
 
 * **[Gatsby](https://gatsbyjs.org)** static site generator
 * **[Netlify CMS](https://github.com/netlify/netlify-cms)** for content management
-* Dynamic menus and forms
+* **[Tailwind CSS](https://tailwindcss.com/)** for streamlined styling
 * Fully responsive layout for mobile and widescreen browsing
 * Blog searching and paging functionality
 * Seamless image and content sliders
