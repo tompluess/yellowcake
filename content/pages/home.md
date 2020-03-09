@@ -13,7 +13,7 @@ meta:
 ---
 Yellowcake is an opinionated starter project created by [Thrive Digital](https://thriveweb.com.au/) a [Gold Coast Web Design](https://thriveweb.com.au/) studio. To help you create lightening fast websites with [Gatsby](https://gatsbyjs.org) and [Netlify CMS](https://netlifycms.org).
 
-View the [project overview](https://thriveweb.com.au/the-lab/yellowcake-gatsby-react-js-starter-project/) and the [docs](https://github.com/thriveweb/yellowcake/blob/master/README.md).
+View the [project overview](https://thriveweb.com.au/the-lab/yellowcake-gatsby-react-js-starter-project/) and the [docs](https://github.com/tompluess/yellowcake/blob/master/README.md).
 
 [This fork](https://github.com/tompluess/yellowcake) is adapted to GitHub Authentication and deployment to [Zeit.co CDN](https://zeit.co/).
 
